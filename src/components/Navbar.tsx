@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <nav className="flex justify-center bg-amber-500 py-4 px-40">
       <NavigationMenu className="flex justify-between max-w-full">
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -58,7 +58,7 @@ export default function Navbar() {
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
-          <NavigationMenuList>
+          <NavigationMenuList className="hidden sm:lg:flex">
             {links.map((link) => {
               return (
                 <NavigationMenuItem key={link.id}>
@@ -69,6 +69,22 @@ export default function Navbar() {
               );
             })}
           </NavigationMenuList>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="sm:lg:hidden size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </div>
         </div>
         <NavigationMenuList>
           <NavigationMenuItem>

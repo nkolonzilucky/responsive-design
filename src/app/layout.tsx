@@ -28,8 +28,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-w-fit`}
       >
-        <Navbar />
-        {children}
+        <div className="fixed z-10 top-0 min-w-full">
+          <Navbar />
+        </div>
+        <div className="mt-[88px] pt-6">{children}</div>
       </body>
     </html>
   );
