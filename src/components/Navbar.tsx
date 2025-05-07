@@ -13,7 +13,7 @@ export default function Navbar() {
   const links = [
     {
       id: "0",
-      href: "/home",
+      href: "/",
       Title: "Home",
     },
     {
@@ -40,36 +40,41 @@ export default function Navbar() {
   return (
     <nav className="flex justify-center bg-amber-500 py-4 px-40">
       <NavigationMenu className="flex justify-between max-w-full">
+        <div className="flex gap-3">
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink>
+                <button className="button-primary">
+                  <span>Icon</span>
+                  <span>The Cake Angel</span>
+                </button>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+          <NavigationMenuList>
+            {links.map((link) => {
+              return (
+                <NavigationMenuItem key={link.id}>
+                  <NavigationMenuLink href={link.href}>
+                    {link.Title}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              );
+            })}
+          </NavigationMenuList>
+        </div>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink>
-              <button className="button-primary">
-                <span>Icon</span>
-                <span>The Cake Angel</span>
-              </button>
+            <NavigationMenuLink href="/signin">
+              <button className="btn btn-link">SignIn</button>
             </NavigationMenuLink>
           </NavigationMenuItem>
-        </NavigationMenuList>
-        <NavigationMenuList>
-          {links.map((link) => {
-            return (
-              <NavigationMenuItem key={link.id}>
-                <NavigationMenuLink href={link.href}>
-                  {link.Title}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            );
-          })}
-        </NavigationMenuList>
-        <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink>
-              <button className="button-primary">SignIn</button>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink>
-              <button className="button-primary">Start For Free</button>
+            <NavigationMenuLink
+              className="btn btn-primary min-w-fit min-h-fit"
+              href="/signup"
+            >
+              Start For Free
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
