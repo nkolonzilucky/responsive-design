@@ -8,6 +8,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 export default function Navbar() {
   const links = [
@@ -43,11 +44,17 @@ export default function Navbar() {
         <div className="flex gap-3">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink>
-                <button className="button-primary">
-                  <span>Icon</span>
-                  <span>The Cake Angel</span>
-                </button>
+              <NavigationMenuLink
+                href="/"
+                className="flex flex-row btn btn-neutral py-6 px-4 items-center"
+              >
+                <Image src={"/logo.svg"} alt="logo" width={33} height={33} />
+                <span className="text-nowrap flex flex-col text-[0.9rem] leading-3.5">
+                  The Cake Angel
+                  <span className="text-[0.6rem] tracking-tight opacity-60">
+                    I believe in your smile
+                  </span>
+                </span>
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -71,7 +78,7 @@ export default function Navbar() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
-              className="btn btn-primary min-w-fit min-h-fit"
+              className="btn btn-primary min-w-fit min-h-fit text-nowrap"
               href="/signup"
             >
               Start For Free
