@@ -7,7 +7,7 @@ export default function Home() {
         <h6>TEAM</h6>
         <h1 className="text-5xl max-w-fit">Creative Members</h1>
       </div>
-      <div className="grid grid-cols-1 sm:md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:md:grid-cols-2 lg:grid-cols-4 gap-12">
         {[1, 2, 3, 4].map((profile) => (
           <Profile key={profile} />
         ))}
