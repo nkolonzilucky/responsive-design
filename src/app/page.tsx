@@ -1,6 +1,13 @@
 import Profile from "@/components/Profile";
 
 export default function Home() {
+  const profiles = [
+    { id: "1", src: "/Jedi Jones.png", alt: "Jedi Jones" },
+    { id: "2", src: "/Jedi Jones.png", alt: "Jedi Jones" },
+    { id: "3", src: "/Jedi Jones.png", alt: "Jedi Jones" },
+    { id: "4", src: "/Jedi Jones.png", alt: "Jedi Jones" },
+  ];
+
   return (
     <section className="mt-16 pb-16 flex flex-col items-center gap-24">
       <div className="flex flex-col items-center gap-4">
@@ -8,8 +15,8 @@ export default function Home() {
         <h1 className="text-5xl max-w-fit">Creative Members</h1>
       </div>
       <div className="grid grid-cols-1 sm:md:grid-cols-2 lg:grid-cols-4 gap-12">
-        {[1, 2, 3, 4].map((profile) => (
-          <Profile key={profile} />
+        {profiles.map((profile) => (
+          <Profile key={profile.id} src={profile.src} alt={profile.alt} />
         ))}
       </div>
     </section>
