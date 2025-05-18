@@ -1,3 +1,4 @@
+import FileUploader from "@/components/FileUpload";
 import Profile from "@/components/Profile";
 import { promises as fs } from "fs";
 
@@ -15,7 +16,6 @@ async function getPngFiles() {
         alt: pngFileName,
       };
     });
-  console.log(pngFiles);
   return pngFiles;
 }
 
@@ -27,6 +27,10 @@ export default async function Home() {
       <div className="flex flex-col items-center gap-4">
         <h6>TEAM</h6>
         <h1 className="text-5xl max-w-fit">Creative Members</h1>
+      </div>
+
+      <div>
+        <FileUploader />
       </div>
       <div className="grid grid-cols-1 sm:md:grid-cols-2 lg:grid-cols-4 gap-12">
         {profiles.map((profile) => (
