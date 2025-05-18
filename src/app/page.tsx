@@ -1,12 +1,26 @@
 import Profile from "@/components/Profile";
+import { promises as fs } from "fs";
 
-export default function Home() {
-  const profiles = [
-    { id: "1", src: "/Jedi Jones.png", alt: "Jedi Jones" },
-    { id: "2", src: "/Jedi Jones.png", alt: "Jedi Jones" },
-    { id: "3", src: "/Jedi Jones.png", alt: "Jedi Jones" },
-    { id: "4", src: "/Jedi Jones.png", alt: "Jedi Jones" },
-  ];
+async function getPngFiles() {
+  const filePath = process.cwd() + "/public/";
+  const dirFiles = await fs.readdir(filePath);
+  const pngFiles = dirFiles
+    .filter((fileName) => {
+      return fileName.endsWith("png");
+    })
+    .map((pngFileName, index) => {
+      return {
+        id: index,
+        src: "/" + pngFileName,
+        alt: pngFileName,
+      };
+    });
+  console.log(pngFiles);
+  return pngFiles;
+}
+
+export default async function Home() {
+  const profiles = await getPngFiles();
 
   return (
     <section className="mt-16 pb-16 flex flex-col items-center gap-24">
